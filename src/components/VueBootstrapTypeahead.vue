@@ -34,6 +34,8 @@
       :text-variant="textVariant"
       :maxMatches="maxMatches"
       :minMatchingChars="minMatchingChars"
+      :isFocused="isFocused"
+      :showAllItemsOnFocus="showAllItemsOnFocus"
       @hit="handleHit"
     >
       <!-- pass down all scoped slots -->
@@ -77,6 +79,10 @@ export default {
       type: Function,
       default: (d) => d,
       validator: d => d instanceof Function
+    },
+    showAllItemsOnFocus: {
+      type: Boolean,
+      required: true
     },
     backgroundVariant: String,
     textVariant: String,

@@ -39,6 +39,14 @@ export default {
       required: true,
       validator: d => d instanceof Array
     },
+    isFocused: {
+      type: Boolean,
+      default: false
+    },
+    showAllItemsOnFocus: {
+      type: Boolean,
+      default: false
+    },
     query: {
       type: String,
       default: ''
@@ -77,7 +85,9 @@ export default {
     },
 
     matchedItems() {
-      if (this.query.length === 0 || this.query.length < this.minMatchingChars) {
+      const shouldReturnEmpty = !this.showAllItemsOnFocus && (this.query.length === 0 || this.query.length < this.minMatchingChars)
+
+      if (shouldReturnEmpty) {
         return []
       }
 

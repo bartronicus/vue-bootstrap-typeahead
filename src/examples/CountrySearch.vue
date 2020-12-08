@@ -7,6 +7,7 @@
       :data="countries"
       v-model="cntrySearch"
       :serializer="s => s.name"
+      :showAllItemsOnFocus="true"
       placeholder="Canada, United States, etc..."
       @hit="handleHit"
     >
