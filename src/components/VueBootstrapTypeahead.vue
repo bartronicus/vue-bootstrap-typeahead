@@ -82,7 +82,7 @@ export default {
     },
     showAllItemsOnFocus: {
       type: Boolean,
-      required: true
+      default: false
     },
     backgroundVariant: String,
     textVariant: String,
@@ -143,7 +143,12 @@ export default {
         this.$emit('input', evt.text)
       }
 
-      this.inputValue = evt.text
+      if (this.clearOnHit) {
+        this.inputValue = ''
+      } else {
+        this.inputValue = evt.text
+      }
+      
       this.$emit('hit', evt.data)
       this.$refs.input.blur()
       this.isFocused = false
