@@ -75,6 +75,10 @@ export default {
       required: true,
       validator: d => d instanceof Array
     },
+    clearOnHit: {
+      type: Boolean,
+      default: true
+    },
     serializer: {
       type: Function,
       default: (d) => d,
@@ -148,7 +152,7 @@ export default {
       } else {
         this.inputValue = evt.text
       }
-      
+
       this.$emit('hit', evt.data)
       this.$refs.input.blur()
       this.isFocused = false
