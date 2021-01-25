@@ -77,7 +77,7 @@ export default {
     },
     clearOnHit: {
       type: Boolean,
-      default: true
+      default: false
     },
     serializer: {
       type: Function,
